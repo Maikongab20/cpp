@@ -71,6 +71,44 @@ void Imprimir(No *lista)
   }
 }
 
+void DeletarInicio(No *lista)
+{
+
+  No *tmp;
+
+  if (lista != NULL)
+  {
+    tmp = lista;
+    lista = lista->prox;
+    free(tmp);
+  }
+}
+
+void DeletarFim(No *lista)
+{
+
+  No *tmp, *tmp2 = Inicialize(tmp2);
+
+  if (lista != NULL)
+  {
+    if (lista->prox != NULL)
+    {
+      tmp = lista;
+      while (tmp->prox != NULL)
+      {
+        tmp2 = tmp;
+        tmp = tmp->prox;
+      }
+
+      free(tmp2);
+    }
+    else
+    {
+      lista = NULL;
+    }
+  }
+}
+
 char Menu()
 {
   printf("[A] Inserir no inicio\n");
