@@ -71,7 +71,44 @@ void Imprimir(No *lista)
   }
 }
 
-int main()
+char Menu()
+{
+  printf("[A] Inserir no inicio\n");
+  printf("[B] Inserir no fim\n");
+  printf("[C] Imprimir\n");
+  return toupper(getch());
+}
+
+void inicializa()
 {
   No *ponteiro;
+  char opcao;
+
+  ponteiro = Inicialize(pobteiro);
+
+  do
+  {
+    opcao = Menu();
+
+    switch (opcao)
+    {
+
+    case 'A':
+      inserirInicio(ponteiro);
+      break;
+
+    case 'B':
+      inserirFim(ponteiro);
+      break;
+
+    case 'c':
+      Imprimir(ponteiro);
+      break;
+    }
+  }
+}
+
+int main()
+{
+  inicializa();
 }
