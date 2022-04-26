@@ -63,12 +63,64 @@ void Imprimir(No *lista)
 {
 
   No *tmp = lista;
-
-  while (tmp->prox != NULL)
+  if (lista == NULL)
   {
-    printf("%d", tmp->elem);
-    tmp = tmp->prox;
+    printf("lista vazia \n");
   }
+  else
+  {
+    while (tmp->prox != NULL)
+    {
+      printf("%d", tmp->elem);
+      tmp = tmp->prox;
+    }
+    printf("%d", tmp->elem);
+    getch();
+  }
+  // opcao 2
+  // while (tmp != NULL)
+  //   {
+  //     printf("%d", tmp->elem);
+  //     tmp = tmp->prox;
+  //   }
+}
+}
+
+ponteiro *Excluir(No *lista, char elem)
+{
+  No *tmp, tmp2;
+
+  if (lista == NULL)
+  {
+    printf("lista esta vazia");
+  }
+  else
+  {
+    // primeiro
+    if (lista->elem == elem)
+    {
+      tmp = lista;
+      lista = lista->prox;
+      delete (tmp);
+    }
+    else
+    {
+      // meio
+      tmp = lista->prox;
+      while (tmp != NULL && tmp->elem != elem)
+      {
+        tmp2 = tmp;
+        tmp = tmp->prox;
+      }
+
+      if (tmp != NULL)
+      {
+        tmp2->prox = tmp->prox;
+        delete (tmp);
+      }
+    }
+  }
+  return lista;
 }
 
 void DeletarInicio(No *lista)
@@ -100,6 +152,7 @@ void DeletarFim(No *lista)
         tmp = tmp->prox;
       }
 
+      tmp->prox = NULL;
       free(tmp2);
     }
     else
@@ -122,7 +175,7 @@ void inicializa()
   No *ponteiro;
   char opcao;
 
-  ponteiro = Inicialize(pobteiro);
+  ponteiro = Inicialize(ponteiro);
 
   do
   {
