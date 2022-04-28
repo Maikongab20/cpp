@@ -1,5 +1,4 @@
 
-
 struct No
 {
   char elem;
@@ -18,6 +17,11 @@ No *Inserir(No *lista, char elem)
   return lista;
 }
 
+No *Prox(No *lista)
+{
+  return lista->prox;
+}
+
 char exibir(No *lista)
 {
   return lista->elem;
@@ -31,4 +35,8 @@ No *excluirInicio(No *lista)
   lista = lista->prox;
   delete (tmp);
   return lista;
+}
+
+No *Excluirfim(No *lista)
+{
 }

@@ -105,7 +105,7 @@ ponteiro *Excluir(No *lista, char elem)
     }
     else
     {
-      // meio
+      // meio e fim
       tmp = lista->prox;
       while (tmp != NULL && tmp->elem != elem)
       {
